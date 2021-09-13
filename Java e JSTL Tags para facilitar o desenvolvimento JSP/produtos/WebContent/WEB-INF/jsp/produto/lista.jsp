@@ -23,6 +23,7 @@
 	<div id="mensagem"></div>
 	<table width="100%">
 		<tr>
+			<td>Numero</td>
 			<td width="20%">Nome</td>
 			<td>Preco</td>
 			<td>Descricao</td>
@@ -30,9 +31,10 @@
 			<td>Usado?</td>
 			<td width="20%">Remover?</td>
 		</tr>
-		
-		<c:forEach var="p" items="${produtoList}">
+
+		<c:forEach var="p" items="${produtoList}" varStatus="st">
 			<tr id="produto${p.id}">
+				<td>${st.count}</td>
 				<td>${p.nome}</td>
 				<td>${p.preco}</td>
 				<td>${p.descricao}</td>
