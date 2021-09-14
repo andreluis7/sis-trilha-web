@@ -55,5 +55,8 @@
 	</table>
 	<c:url value="/produto/formulario" var="urlAdicionar" />
 	<a href="${urlAdicionar}">Adicionar um produto</a>
+
+	<c:set var="nome" value="João da Silva" />
+	<c:out value="${nome}" />
 </body>
 </html>
