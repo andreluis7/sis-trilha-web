@@ -41,7 +41,7 @@
 				
 				<td>${p.descricao}</td>
 
-				<td><fmt:formatDate pattern="dd/MM/yyyy"
+				<td><fmt:formatDate pattern="EEEE, dd 'de' MMMM 'de' yyyy"
 						value="${p.dataInicioVenda.time}" /></td>
 
 				<c:choose>
