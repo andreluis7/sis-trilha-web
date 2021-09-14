@@ -36,9 +36,13 @@
 			<tr id="produto${p.id}">
 				<td>${st.count}</td>
 				<td>${p.nome}</td>
-				<td>${p.preco}</td>
+				
+				<td><fmt:formatNumber value="${p.preco}" type="currency" /></td>
+				
 				<td>${p.descricao}</td>
-				<td>${p.dataInicioVenda.time}</td>
+
+				<td><fmt:formatDate pattern="dd/MM/yyyy"
+						value="${p.dataInicioVenda.time}" /></td>
 
 				<c:choose>
 					<c:when test="${p.usado}">
