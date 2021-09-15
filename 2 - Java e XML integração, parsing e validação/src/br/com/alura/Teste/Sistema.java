@@ -12,7 +12,7 @@ import br.com.alura.Model.Produto;
 public class Sistema {
 	public static void main(String[] args) throws Exception {
 		DocumentBuilderFactory fabrica = DocumentBuilderFactory.newInstance();
-		// validação do xml
+
 		fabrica.setValidating(true);
 		fabrica.setNamespaceAware(true);
 		fabrica.setAttribute("http://java.sun.com/xml/jaxp/properties/schemaLanguage",
