@@ -20,5 +20,7 @@ public class ConversorParaHtml {
 
 		Transformer transformer = TransformerFactory.newInstance().newTransformer(xslSource);
 		transformer.transform(xmlSource, saida);
+		
+		System.out.println("Conversão concluída");
 	}
 }
