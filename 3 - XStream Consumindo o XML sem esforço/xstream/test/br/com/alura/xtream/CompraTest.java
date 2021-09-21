@@ -150,6 +150,40 @@ public class CompraTest {
 
         assertEquals(resultadoEsperado, xmlGerado);
     }
+    
+    @Test
+    public void deveUsarUmConversorDiferente() {
+
+        String resultadoEsperado = "<compra estilo=\"novo\">\n" 
+                + "  <id>15</id>\n"
+                + "  <fornecedor>guilherme.silveira@caelum.com.br</fornecedor>\n"
+                + "  <endereco>\n"
+                + "    <linha1>Rua Vergueiro 3185</linha1>\n"
+                + "    <linha2>8 andar - Sao Paulo - SP</linha2>\n"
+                + "  </endereco>\n"
+                + "  <produtos>\n" 
+                + "    <produto codigo=\"1587\">\n"
+                + "      <nome>geladeira</nome>\n"
+                + "      <preco>1000.0</preco>\n"
+                + "      <descrição>geladeira duas portas</descrição>\n"
+                + "    </produto>\n"
+                + "    <produto codigo=\"1587\">\n"
+                + "      <nome>geladeira</nome>\n"
+                + "      <preco>1000.0</preco>\n"
+                + "      <descrição>geladeira duas portas</descrição>\n"
+                + "    </produto>\n"
+                + "  </produtos>\n" 
+                + "</compra>";
+    	
+        Compra compra = compraDuasGeladeirasIguais();
+
+        XStream xstream = xstreamParaCompraEProduto();
+        xstream.setMode(XStream.NO_REFERENCES);
+        xstream.registerConverter(new CompraDiferenteConverter());
+        String xmlGerado = xstream.toXML(compra);
+
+        assertEquals(resultadoEsperado, xmlGerado);
+    }
 	
 	private Compra compraDuasGeladeirasIguais() {
 	    Produto geladeira = geladeira();

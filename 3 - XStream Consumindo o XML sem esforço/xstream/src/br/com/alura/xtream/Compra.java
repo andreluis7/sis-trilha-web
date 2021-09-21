@@ -3,6 +3,8 @@ package br.com.alura.xtream;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ibm.xtq.xslt.xylem.instructions.number.GetDefaultNodeCounterInstruction;
+
 public class Compra {
 
 	private int id;
@@ -11,6 +13,14 @@ public class Compra {
 	public Compra(int id, List<Produto> produtos) {
 		this.id = id;
 		this.produtos = produtos;
+	}
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public int getId() {
+		return id;
 	}
 
 	@Override
