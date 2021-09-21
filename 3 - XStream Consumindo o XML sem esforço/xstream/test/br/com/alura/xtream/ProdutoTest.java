@@ -12,10 +12,10 @@ public class ProdutoTest {
     @Test
     public void deveGerarOXmlComONomePrecoEDescricaoAdequados() {
     	String resultadoEsperado = "<produto codigo=\"1587\">\n" +
-    	        "  <nome>geladeira</nome>\n" +
-    	        "  <preco>1000.0</preco>\n" +
-    	        "  <descrição>geladeira duas portas</descrição>\n" +
-    	        "</produto>";
+                "  <nome>geladeira</nome>\n" +
+                "  <preco>R$ 1.000,00</preco>\n" +
+                "  <descrição>geladeira duas portas</descrição>\n" +
+                "</produto>";
 
     	Produto geladeira = new Produto("geladeira", 1000, "geladeira duas portas", 1587);
 
@@ -23,6 +23,7 @@ public class ProdutoTest {
         xstream.alias("produto", Produto.class);
         xstream.aliasField("descrição", Produto.class, "descricao");
         xstream.useAttributeFor(Produto.class, "codigo");
+        xstream.registerLocalConverter(Produto.class, "preco", new PrecoSimplesConverter());
 
         String xmlGerado = xstream.toXML(geladeira);
 
